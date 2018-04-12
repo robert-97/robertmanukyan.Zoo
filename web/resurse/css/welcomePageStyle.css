@@ -1,0 +1,13 @@
+
+.floatLeft{
+    float: left;
+}
+
+.float-right{
+    float: right;
+}
+
+#user-name-label{
+    width: 200px;
+    height: 100px;
+}
