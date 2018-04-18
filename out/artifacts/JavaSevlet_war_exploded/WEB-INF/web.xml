@@ -50,13 +50,61 @@
     </filter-mapping>
 
     <servlet>
-        <servlet-name>CageAdder</servlet-name>
-        <servlet-class>com.demo.bean.CageAdder</servlet-class>
+        <servlet-name>AnimalAdder</servlet-name>
+        <servlet-class>com.demo.animalAdder.AnimalAdder</servlet-class>
     </servlet>
 
     <servlet-mapping>
-        <servlet-name>CageAdder</servlet-name>
-        <url-pattern>/CageAdder</url-pattern>
+        <servlet-name>AnimalAdder</servlet-name>
+        <url-pattern>/AnimalAdder</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>AnimalsGetter</servlet-name>
+        <servlet-class>com.demo.animalsGetter.AnimalsGetter</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>AnimalsGetter</servlet-name>
+        <url-pattern>/AnimalsGetter</url-pattern>
+    </servlet-mapping>
+
+    <filter>
+        <filter-name>InnerPagesFilter</filter-name>
+        <filter-class>com.demo.filter.InnerPagesFilter</filter-class>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>InnerPagesFilter</filter-name>
+        <url-pattern>/innerPages/*</url-pattern>
+    </filter-mapping>
+
+
+
+
+
+    <!-- servlet definition -->
+    <servlet>
+        <servlet-name>ErrorHandler</servlet-name>
+        <servlet-class>ErrorHandler</servlet-class>
+    </servlet>
+
+    <!-- servlet mappings -->
+    <servlet-mapping>
+        <servlet-name>ErrorHandler</servlet-name>
+        <url-pattern>/ErrorHandler</url-pattern>
+    </servlet-mapping>
+
+    <!-- error-code related error pages -->
+    <error-page>
+        <error-code>404</error-code>
+        <location>/ErrorHandler</location>
+    </error-page>
+
+    <error-page>
+        <error-code>403</error-code>
+        <location>/ErrorHandler</location>
+    </error-page>
+
 
 </web-app>

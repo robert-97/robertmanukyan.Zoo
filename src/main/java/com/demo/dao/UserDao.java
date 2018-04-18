@@ -3,22 +3,19 @@ package com.demo.dao;
 import com.demo.models.User;
 
 import java.sql.*;
-import java.util.HashMap;
-import java.util.Map;
-
 
 /**
  * Created by robert.manukyan on 3/19/2018.
  */
 
-public class Dao {
+public class UserDao {
 
-    private String connectURL = "jdbc:sqlserver://SIS4W005:1433;dataBaseName = user; ";
-    private String login = "root";
-    private String password = "root";
+    private String connectURL = "jdbc:sqlserver://SIS4W009\\SQLEXPRESS:1433;dataBaseName = user; ";
+    private String login = "sa";
+    private String password = "Robert#banan";
     private Connection connection;
 
-    public Dao() throws SQLException, ClassNotFoundException {
+    public UserDao() throws SQLException, ClassNotFoundException {
         Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
         connection = DriverManager.getConnection(connectURL, login, this.password);
     }
@@ -32,7 +29,7 @@ public class Dao {
         preparedStatement.setString(2, password);
         ResultSet result = preparedStatement.executeQuery();
 
-        if(result.next()){
+        if (result.next()) {
             User user = new User();
             user.setUsername(result.getString("name"));
             user.setPassword(result.getString("password"));

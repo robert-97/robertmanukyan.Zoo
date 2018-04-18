@@ -1,7 +1,6 @@
 package com.demo.registration;
 
-import com.demo.dao.Dao;
-
+import com.demo.dao.UserDao;
 import java.io.*;
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -45,8 +44,8 @@ public class Registration extends HttpServlet {
         out.println("<h1>" + request.getParameter("password") + "</h1>");
 
         try {
-            Dao dao = new Dao();
-            dao.userRegistration(userName, password, role);
+            UserDao userDao = new UserDao();
+            userDao.userRegistration(userName, password, role);
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         } catch (SQLException e) {

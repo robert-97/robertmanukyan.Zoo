@@ -1,4 +1,4 @@
-package com.demo;
+package com.demo.cookieFinder;
 
 import javax.servlet.ServletRequest;
 import javax.servlet.http.Cookie;
@@ -8,9 +8,9 @@ import java.io.IOException;
 /**
  * Created by robert.manukyan on 3/21/2018.
  */
-public class Cookies  {
+public class CookieFinder {
 
-    public static Cookie getCookie(ServletRequest request) throws IOException {
+    public static Cookie getCookie(ServletRequest request, String cookieName) throws IOException {
 
         HttpServletRequest httpRequest = (HttpServletRequest) request;
 
@@ -18,14 +18,11 @@ public class Cookies  {
 
         if (cookies != null) {
             for (Cookie cookie : cookies) {
-                if ("auth".equals(cookie.getName())) {
+                if (cookieName.equals(cookie.getName())) {
                     return cookie;
                 }
             }
-
         }
         return null;
     }
-
-
 }

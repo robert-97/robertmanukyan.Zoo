@@ -9,6 +9,7 @@ $("#clear-cart").click( function(e){
 
 
 function deleteCookie (name) {
+    console.log("hjgajagskj")
     sessionStorage.removeItem('user');
 
     document.cookie = name + '=;expires=Thu, 01 Jan 1970 00:00:01 GMT;';

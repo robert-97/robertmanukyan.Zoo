@@ -4,15 +4,23 @@ package com.demo.models;
  * Created by robert.manukyan on 11.04.2018.
  */
 public class Cage {
-    private int cageNumber ;
-    private Animal[] animals ;
+    private int cageNumber;
+    private int cageNumberID;
 
-    public Animal[] getAnimalas() {
-        return animals;
+
+    public Cage(int cageNumberID, int cageNumber) {
+
+        this.cageNumber = cageNumber;
+        this.cageNumberID = cageNumberID;
     }
 
-    public void setAnimalas(Animal[] animals) {
-        this.animals = animals;
+    public void setCageNumberID(int cageNumberID) {
+        this.cageNumberID = cageNumberID;
+    }
+
+    public int getCageNumberID() {
+
+        return cageNumberID;
     }
 
     public Cage(int cageNumber) {

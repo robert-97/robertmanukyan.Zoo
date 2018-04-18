@@ -1,11 +1,9 @@
 package com.demo.filter;
 
-
-import com.demo.Cookies;
+import com.demo.cookieFinder.CookieFinder;
 
 import java.io.IOException;
 import java.util.Date;
-
 import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -15,7 +13,6 @@ import javax.servlet.http.HttpServletResponse;
  */
 
 public class LoginFilter implements Filter {
-
 
     @Override
     public void init(FilterConfig fConfig) throws ServletException {
@@ -31,19 +28,16 @@ public class LoginFilter implements Filter {
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
 
         HttpServletRequest httpRequest = (HttpServletRequest) request;
+        HttpServletResponse httpResponse = (HttpServletResponse) response;
         String servletPath = httpRequest.getServletPath();
 
         System.out.println("#INFO " + new Date() + " - ServletPath :" + servletPath + ", URL =" + httpRequest.getRequestURL());
 
-        HttpServletResponse httpResponse = (HttpServletResponse) response;
-
-        if (httpRequest.getRequestURL().toString().equals("http://localhost:8080/empty.jsp") && Cookies.getCookie(request) == null) {
+        if (httpRequest.getRequestURL().toString().equals("http://localhost:8080/welcome.jsp") && CookieFinder.getCookie(request, "temp") == null) {
 //            httpRequest.getRequestDispatcher("/").forward(request,response);
             httpResponse.sendRedirect("/");
             return;
         }
-
         chain.doFilter(request, response);
     }
-
 }
