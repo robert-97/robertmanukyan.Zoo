@@ -24,8 +24,15 @@ public class AnimalsGetter extends HttpServlet {
         getAnimals(request, response);
     }
 
+    /**
+     * load animals from DB
+     * @param request
+     * @param response
+     */
+
     public void getAnimals(HttpServletRequest request, HttpServletResponse response) {
-        Integer cageID = Integer.parseInt(request.getParameter("cageNumber").trim());
+
+        Integer cageID = Integer.parseInt(request.getParameter("cageNumberID").trim());
 
         try {
             ZooDao zooDao = new ZooDao();

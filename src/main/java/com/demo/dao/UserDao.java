@@ -20,6 +20,15 @@ public class UserDao {
         connection = DriverManager.getConnection(connectURL, login, this.password);
     }
 
+    /**
+     *
+     * @param userName
+     * @param password
+     * @return user from DB
+     * @throws ClassNotFoundException
+     * @throws SQLException
+     */
+
     public User getUser(String userName, String password) throws ClassNotFoundException, SQLException {
 
         String sql = "SELECT * FROM dbo.users WHERE (name = ? AND password= ?)";
@@ -36,6 +45,7 @@ public class UserDao {
             user.setRole(result.getString("role"));
             return user;
         }
+        connection.close();
         return null;
 
     }
@@ -49,6 +59,7 @@ public class UserDao {
         preparedStatement.setString(2, password);
         preparedStatement.setString(3, role);
         preparedStatement.executeUpdate();
+        connection.close();
     }
 
 }

@@ -34,6 +34,7 @@ public class ZooDao {
             Cage cage = new Cage(result.getInt(1), result.getInt(2));
             cagesList.add(cage);
         }
+        connection.close();
         return cagesList;
     }
 
@@ -46,6 +47,7 @@ public class ZooDao {
         preparedStatement.setString(2, animalName);
         preparedStatement.setInt(3, Integer.parseInt(cageID.trim()));
         preparedStatement.executeUpdate();
+        connection.close();
 
     }
 
@@ -58,10 +60,12 @@ public class ZooDao {
         ResultSet result = preparedStatement.executeQuery();
 
         List<Animal> animalList = new ArrayList<Animal>();
+
         while (result.next()) {
             Animal animal = new Animal(result.getString(1), result.getString(2));
             animalList.add(animal);
         }
+        connection.close();
         return animalList;
     }
 }

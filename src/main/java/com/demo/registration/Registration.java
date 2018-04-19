@@ -25,12 +25,16 @@ public class Registration extends HttpServlet {
     }
 
 
+    /**
+     * save received parameters into DB
+     * @param request
+     * @param response
+     * @throws IOException
+     */
     private void userRegistration(HttpServletRequest request, HttpServletResponse response) throws IOException {
         String userName = request.getParameter("name");
         String password = request.getParameter("password");
         String role = request.getParameter("role");
-
-        System.out.println(role);
 
         if ("".equals(userName) || "".equals(password) || "".equals(role)) {
             response.sendRedirect("/#");
@@ -39,9 +43,6 @@ public class Registration extends HttpServlet {
 
         response.setContentType("text/html");
         response.sendRedirect("/index.jsp");
-
-        PrintWriter out = response.getWriter();
-        out.println("<h1>" + request.getParameter("password") + "</h1>");
 
         try {
             UserDao userDao = new UserDao();

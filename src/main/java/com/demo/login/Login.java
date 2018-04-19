@@ -38,8 +38,6 @@ public class Login extends HttpServlet {
             UserDao userDao = new UserDao();
             User user = userDao.getUser(username, password);
             if (user != null) {
-//                HttpSession session = request.getSession() ;
-//                session.setAttribute((String) userRole.get(true), username);
 
                 Cookie cookie = new Cookie("temp", user.getRole());
                 cookie.setMaxAge(90);

@@ -10,6 +10,13 @@ import java.io.IOException;
  */
 public class CookieFinder {
 
+    /**
+     *
+     * @param request
+     * @param cookieName
+     * @return  cookie which cookie name is cookeName
+     * @throws IOException
+     */
     public static Cookie getCookie(ServletRequest request, String cookieName) throws IOException {
 
         HttpServletRequest httpRequest = (HttpServletRequest) request;

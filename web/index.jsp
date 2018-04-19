@@ -14,7 +14,7 @@
     <meta charset="UTF-8">
     <title>Flat HTML5/CSS3 Login Form</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="resurse/css/style.css">
+    <link rel="stylesheet" href="resurse/css/loginPageStyle.css">
 
 </head>
 
@@ -22,7 +22,7 @@
 
 <div class="login-page">
     <div class="form">
-
+        <!--registration form-->
         <form class="register-form" action="/registration" method="post">
             <input type="text" name="name" placeholder="name" required />
             <input type="password" name="password" placeholder="password" required/>
@@ -30,6 +30,8 @@
             <button onclick="checkEmail">create</button>
             <p class="message">Already registered? <a href="#">Sign In</a></p>
         </form>
+
+        <!--login form-->
 
         <form class="login-form" action="/login" method="post">
             <input type="text" name="userName" placeholder="username" required/>

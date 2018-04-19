@@ -76,10 +76,6 @@
         <url-pattern>/innerPages/*</url-pattern>
     </filter-mapping>
 
-
-
-
-
     <!-- servlet definition -->
     <servlet>
         <servlet-name>ErrorHandler</servlet-name>
